@@ -4,7 +4,10 @@ from .forms import FeedbackForm
 # Create your views here.
 
 def index(req):
-    context = {'posts' : Post.objects.all()[:3]}
+    context = {
+            'photos': Photo.objects.all()[:3],
+            'posts' : Post.objects.all()[:3]
+            }
     return render(req, 'general/index.html', context)
 
 def about(req):
