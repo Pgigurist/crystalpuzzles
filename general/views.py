@@ -22,9 +22,6 @@ def gallery(req):
     return render(req, 'general/gallery.html', context)
 
 def addFeedback(req):
-    """
-        добавляет левый отзыв/ fixed
-    """
     posts = Feedback.objects.all().order_by('pub_date').reverse()
     
     if req.method == 'POST':
