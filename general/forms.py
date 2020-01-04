@@ -4,7 +4,7 @@ from .models import Feedback
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ('name', 'text')
+        fields = ('name', 'city', 'text')
 
     """
     name = forms.CharField(max_length=100)

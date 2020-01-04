@@ -4,17 +4,19 @@
 <div class="container">
 	<div class="row pt-4">
 		{% for post in posts %}
-		<div class="card m-2" style="width: 18rem;">
-			<div class="card-body">
-					<h5 class="card-title">{{post.date}}</h5>
-					<h6 class="card-subtitle mb-2 text-muted">город</h6>
-					<p class="card-text">{{post.text}}</p>
-			</div>
-		</div>
+      <div class="col-md-4 col-lg-4 col-sm-6">
+         <div class="card mx-auto m-2">
+            <div class="card-body">
+                  <h5 class="card-title">{{post.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{post.city}}</h6>
+                  <p class="card-text">{{post.text}}</p>
+            </div>
+         </div>
+      </div>
 		{% endfor %}
 	</div>
 	<div class="row pt-3">
-      <div class="col">
+      <div class="col-sm-6 col-lg-4 col-md-4">
          <button data-toggle="modal", data-target="#formModal" class="btn btn-primary">
             оставить отзыв
          </button>
@@ -31,11 +33,23 @@
             </button>
          </div>
          <div class="modal-body">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="#" method="post" enctype="multipart/form-data">
                {% csrf_token %}
-
-               {{ feedback_form }}
-               <input type="submit" name="" class="text" value="" name="">
+               <div class="form-group">
+                  <label for="inputName">Ваше имя</label>
+                  <input name="name" type="text" value="" aria-describedby="nameHelp" placeholder="введите имя" id="inputName" value="" class="text form-control">
+                  <small class="form-text text-muted" id="nameHelp">ваше имя будет доступно другим пользователем</small>
+               </div>
+               <div class="form-group">
+                  <label for="inputCity">Ваш город</label>
+                  <input name="city" type="text" value="" aria-describedby="cityHelp" placeholder="ввеите город" id="inputCity" value="" class="text form-control">
+                  <small class="form-text text-muted" id="cityHelp">ваше имя будет доступно другим пользователем</small>
+               </div>
+               <div class="form-group">
+                  <label for="inputText">Ваш отзыв</label>
+                  <textarea name="text" rows="3" class="form-control" id="inputText"></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">поделиться</button>
             </form>
          </div>
       </div>
