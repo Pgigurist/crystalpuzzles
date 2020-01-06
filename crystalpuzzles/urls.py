@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from general import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', views.index),
+    path('news', views.news),
+    path('about', views.about),
+    path('gallery', views.gallery),
     path('admin/', admin.site.urls),
-]
+    path('feedback/', views.addFeedback),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

@@ -1,0 +1,16 @@
+/*
+.col {
+	border: 1px solid red;
+}
+.row {
+	border: 1px solid red;
+}
+*/
+.container-fluid {
+	padding: 0;
+	margin: 0;
+}
+#carousel {
+	padding: 0;
+	margin: 0;
+}
