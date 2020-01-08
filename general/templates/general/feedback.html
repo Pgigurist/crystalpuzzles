@@ -4,15 +4,17 @@
 <div class="container">
 	<div class="row pt-4">
 		{% for post in posts %}
-      <div class="col-md-4 col-lg-4 col-sm-6">
-         <div class="card mx-auto m-2">
-            <div class="card-body">
-                  <h5 class="card-title">{{post.name}}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">{{post.city}}</h6>
-                  <p class="card-text">{{post.text}}</p>
-            </div>
-         </div>
-      </div>
+         {% if post.moderate %}
+            <div class="col-md-4 col-lg-4 col-sm-6">
+               <div class="card mx-auto m-2">
+                  <div class="card-body">
+                     <h5 class="card-title">{{post.name}}</h5>
+                     <h6 class="card-subtitle mb-2 text-muted">{{post.city}}</h6>
+                     <p class="card-text">{{post.text}}</p>
+                  </div>
+               </div>
+             </div>
+         {% endif %}
 		{% endfor %}
 	</div>
 	<div class="row pt-3">
