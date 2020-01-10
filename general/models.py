@@ -31,7 +31,12 @@ class Feedback(models.Model):
     moderate = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        string = self.name
+        if self.moderate:
+            string += ' (опубликовано)'
+        else:
+            string += ' (новое)'
+        return string
 """
     class Meta:
         verbose_name='Отзыв'
