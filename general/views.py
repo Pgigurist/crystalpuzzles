@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import Post, Photo, Feedback
 from .forms import FeedbackForm
+### import sberbank
+from sberbank.service import BankService
+from sberbank.models import Payment, Status
+
 # Create your views here.
 
 def index(req):
@@ -42,5 +46,7 @@ def addFeedback(req):
         }
     return render(req,  'general/feedback.html', context)
 
-
+def payment(req):
+    print('payment request')
+    pass
 
