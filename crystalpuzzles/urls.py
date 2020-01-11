@@ -18,6 +18,8 @@ from django.urls import path
 from general import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url, include
+
 
 urlpatterns = [
     path('', views.index),
@@ -26,6 +28,7 @@ urlpatterns = [
     path('gallery', views.gallery),
     path('admin/', admin.site.urls),
     path('feedback/', views.addFeedback),
+    url('sberbank', include('sberbank.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

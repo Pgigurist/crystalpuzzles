@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sberbank',
     'general',
 ]
 
@@ -73,7 +74,22 @@ WSGI_APPLICATION = 'crystalpuzzles.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+"""
+    sberbank api
+"""
+MERCHANTS = {
+    '%merchant_id%' : {
+        'username' : 'sberbank-22011-api',
+        'password' : 'kG1qNTBp',
+        'success_url' : 'http://0.0.0.0:8000/sbernank/payment/success',
+        'fail_url' : 'http://0.0.0.0:8000/sberbank/payment/fail',
+        'app_success_url' : 'http://0.0.0.0:8000/payment/success',
+        'app_fail_url' : 'http://0.0.0.:8000/payment/fail',
+    }
+}
 
+
+#########
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
