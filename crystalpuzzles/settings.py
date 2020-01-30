@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sberbank',
     'general',
+    'content_creator',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,8 @@ WSGI_APPLICATION = 'crystalpuzzles.wsgi.application'
 """
 MERCHANTS = {
     '%merchant_id%' : {
-        'username' : 'sberbank-22011-api',
-        'password' : 'kG1qNTBp',
+        'username' : '%merchant_username%',
+        'password' : '%merchant_password%',
         'success_url' : 'http://0.0.0.0:8000/sbernank/payment/success',
         'fail_url' : 'http://0.0.0.0:8000/sberbank/payment/fail',
         'app_success_url' : 'http://0.0.0.0:8000/payment/success',
