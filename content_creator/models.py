@@ -36,11 +36,7 @@ class Element(models.Model):
             choices=ELEMENT_TYPE,
             verbose_name=_('тип')
     )
-    repetitions = models.IntegerField(
-            default=1,
-            verbose_name=_('повторения')
-    )
-    
+       
     def __str__(self):
         return self.name
 
@@ -87,6 +83,10 @@ class ExecutedElement(models.Model):
             choices = ELEMENT_MARK,
             blank = True,
             )
+    repetitions = models.IntegerField(
+            default=1,
+            verbose_name=_('повторения')
+    )
 
     def __str__(self):
         return self.element.name

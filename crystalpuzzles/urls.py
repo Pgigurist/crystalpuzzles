@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('feedback/', views.addFeedback),
     url('sberbank', include('sberbank.urls')),
+    url('content_creator/', include('content_creator.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

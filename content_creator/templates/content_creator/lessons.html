@@ -1,0 +1,12 @@
+{% extends "general/base.html" %}
+{% block content %}
+   {% for lesson in lessons %}
+   <div class="row">
+      <div class="col">
+         <a href="{% url 'detalis' lesson.pk %}">
+            <h3>{{lesson.date}}</h3>
+         </a>
+      </div>
+   </div>
+   {% endfor %}
+{% endblock %}

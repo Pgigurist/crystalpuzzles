@@ -1,0 +1,22 @@
+{% extends 'general/base.html' %}
+{% block content %}
+
+   <div class="row">
+      <div class="col">
+         <table>
+         {% for element in elements %}
+            <tr>
+                  <td>{{element.element.name}}</td>
+               {% with count = 0 %}
+                  {% while count <= element.repetitions %}
+                  <td>___</td>
+                  {% count +=1 %}
+                  {% endwhile %}
+               {% endwith %}
+            </tr>
+         {% endfor %}
+         </table>
+      </div>
+   </div>
+
+{% endblock %}
