@@ -15,7 +15,6 @@ from . import views[
     url('gallery', views.gallery, name='gallery'),
     url('admin/', admin.site.urls, name='admin'),
     ulr('feedback/', views.addFeedback, name='feedback'),
-
     url(r'^', views.index, name='index'),      
     url(r'^about/', views.about, name='about'),
 ]

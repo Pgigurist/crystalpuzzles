@@ -1,22 +1,66 @@
 {% extends 'general/base.html' %}
 {% block content %}
-
+<div class="container pt-5">
    <div class="row">
+      <div class="col">дата занятия:</div>
+      <div class="col">{{lesson.date}}</div>
+      <div class="col">спортсмен:</div>
+      <div class="col">{{lesson.athlet}}</div>
+   </div>
+   <div class="row pt-4">
       <div class="col">
-         <table>
+         <table class="table">
+            <thead>
+               <th>упражнение</th>
+               <th>повторения</th>
+            </thead>
+            <tbody>
          {% for element in elements %}
-            <tr>
+            <tr elm_id="{{element.id}}">  
                   <td>{{element.element.name}}</td>
-               {% with count = 0 %}
-                  {% while count <= element.repetitions %}
-                  <td>___</td>
-                  {% count +=1 %}
-                  {% endwhile %}
-               {% endwith %}
+                  {% with ''|center:element.repetitions as range%}
+                  {% for _ in range %}
+                  <td class="elm border-info text-center">исполнено</td>
+                  {% endfor %}
+                  {% endwith %}
             </tr>
          {% endfor %}
+            </tbody>
          </table>
       </div>
-   </div>
+      <script type="text/javascript">
+         $(document).ready(function(){
+            $('.elm').click(function(){
+               console.log('click')
+               $(this).toggleClass('bg-success')
+            })
+            $('button').click(function(){
+               sendData()
+            })
+         })
 
+
+         function sendData(){
+            
+            let data = Array()
+
+            $('.elm.bg-success').each(function(){
+               let t_data = $(this).parent('tr').attr('elm_id')
+               data.push(t_data)
+            })
+            console.log(data)
+            /*
+            $.post(
+               '/content_creator/ajax/', data
+            )
+            */
+         }
+      </script>
+   </div>
+   <div class="col">
+      <div class="row">
+         <button>ЗАВЕРШЕНО</button>
+      </div>
+   </div>
+</div>
 {% endblock %}

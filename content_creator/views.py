@@ -2,6 +2,11 @@ from django.shortcuts import render
 from .models import Athlet, Lesson, ExecutedElement, Element
 # Create your views here.
 
+def ajax(req):
+    if req.method == 'POST':
+        print('ok')
+    return 'done'
+
 def getAthlets(req):
     content = {
             'athlets' : Athlet.objects.order_by('family_name', 'name')
@@ -16,6 +21,7 @@ def getLessonsByAthlet(req, athlet):
 
 def detalis(req, lesson):
     content = {
+            'lesson'    : Lesson.objects.get(lesson_id=lesson),
             'elements' : ExecutedElement.objects.filter(lesson_id=lesson)
     }
     return render(req, 'content_creator/detalis.html', content)

@@ -50,3 +50,6 @@ def payment(req):
     print('payment request')
     pass
 
+def shedule(req):
+    return render(req, 'general/shedule.html')
+
